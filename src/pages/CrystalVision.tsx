@@ -54,29 +54,41 @@ const CrystalVision: React.FC = () => {
         </div>
       </header>
 
-      {/* ---------- TAB NAVIGATION ---------- */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="flex justify-center mb-12"
+{/* ---------- TAB NAVIGATION WITH SLIDING ANIMATION ---------- */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  className="flex justify-center mb-12 overflow-hidden"
+>
+  <motion.div
+    layout
+    className="bg-secondary/30 p-2 rounded-full border border-gray-700/50 flex gap-2 relative"
+  >
+    {tabs.map((tab) => (
+      <motion.button
+        key={tab}
+        onClick={() => setActiveTab(tab)}
+        className={`px-6 py-3 rounded-full font-medium whitespace-nowrap transition-all relative z-10 ${
+          activeTab === tab
+            ? "text-white"
+            : "text-text-secondary hover:text-text-primary"
+        }`}
+        whileTap={{ scale: 0.95 }}
       >
-        <div className="bg-secondary/30 p-2 rounded-full border border-gray-700/50">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-full font-medium transition-all ${
-                activeTab === tab
-                  ? "bg-accent text-white"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </motion.div>
+        {tab}
+        {activeTab === tab && (
+          <motion.div
+            layoutId="highlight"
+            className="absolute inset-0 bg-accent rounded-full -z-10"
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
+      </motion.button>
+    ))}
+  </motion.div>
+</motion.div>
+
 
   {/* ---------- LOGO GRID ---------- */}
 {activeTab === "Logo Concepts" && (
