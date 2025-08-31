@@ -5,15 +5,6 @@ import PortfolioGrid from '../components/PortfolioGrid';
 import { skills } from '../data/skills';
 import { SITE_CONFIG } from '../utils/constants';
 
-// Profile & Info Icons
-import profileImg from '../images/profile.png';
-import mapIcon from '../icons/map.png';
-import graduateIcon from '../icons/graduate.png';
-
-// Section Icons
-import aboutIcon from '../icons/aboutme.png';
-import skillsIcon from '../icons/skills.png';
-
 const Home = () => {
   return (
     <div className="min-h-screen bg-background text-white">
@@ -27,7 +18,7 @@ const Home = () => {
           className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-accent/20 shadow-lg"
         >
           <img
-            src={profileImg}
+            src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400"
             alt="Profile"
             className="w-full h-full object-cover"
           />
@@ -52,11 +43,11 @@ const Home = () => {
           {/* Location and Education */}
           <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-sm text-text-secondary">
             <div className="flex items-center gap-2">
-              <img src={graduateIcon} alt="Graduate" className="w-4 h-4" />
+              <div className="w-4 h-4 bg-accent rounded-full"></div>
               <span>Fine Arts Student</span>
             </div>
             <div className="flex items-center gap-2">
-              <img src={mapIcon} alt="Location" className="w-4 h-4" />
+              <div className="w-4 h-4 bg-accent-green rounded-full"></div>
               <span>{SITE_CONFIG.location}</span>
             </div>
           </div>
@@ -78,7 +69,7 @@ const Home = () => {
             className="bg-secondary/30 p-8 rounded-2xl border border-gray-700 shadow-md"
           >
             <div className="flex items-center gap-3 mb-5">
-              <img src={aboutIcon} alt="About Me" className="w-6 h-6" />
+              <div className="w-6 h-6 bg-accent rounded-lg"></div>
               <h3 className="text-xl font-mono font-semibold">About Me</h3>
             </div>
             <p className="text-text-secondary leading-relaxed text-base">
@@ -98,7 +89,7 @@ const Home = () => {
             className="bg-secondary/30 p-8 rounded-2xl border border-gray-700 shadow-md"
           >
             <div className="flex items-center gap-3 mb-6">
-              <img src={skillsIcon} alt="Tools & Skills" className="w-6 h-6" />
+              <div className="w-6 h-6 bg-accent-green rounded-lg"></div>
               <h3 className="text-xl font-mono font-semibold">Tools & Skills</h3>
             </div>
             <div className="grid grid-cols-2 gap-4">

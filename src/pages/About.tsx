@@ -2,35 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SITE_CONFIG } from '../utils/constants';
 
-// Local icons
-import InspirationIcon from "../icons/about//inspire.png";
-import GrowthIcon from "../icons/about/growth.png";
-import CommunityIcon from "../icons/about/community.png";
-import ExperienceIcon from "../icons/about/experience.png";
-import SatisfactionIcon from "../icons/about/satisfaction.png";
-import CoffeeIcon from "../icons/about/coffee.png";
-import LearningIcon from "../icons/about/learning.png";
-
-// Local images
-import CreativeImage from "../images/creative.png";
-import ProfileImage from "../images/profile.png"; // add your profile image
-
 const About = () => {
   const values = [
     {
-      icon: InspirationIcon,
       title: "Inspiration Sources",
       description:
         "I find inspiration everywhere—from the interplay of light and shadow in Parisian cafés to the geometric patterns in Islamic architecture.",
     },
     {
-      icon: GrowthIcon,
       title: "Personal Growth",
       description:
         "Each project teaches me something new. I believe in continuous learning and pushing the boundaries of my creative comfort zone.",
     },
     {
-      icon: CommunityIcon,
       title: "Community",
       description:
         "I'm passionate about mentoring emerging artists and contributing to the vibrant creative community that shaped me.",
@@ -38,10 +22,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "8+", label: "Years of Experience", icon: ExperienceIcon },
-    { value: "99%", label: "Client Satisfaction", icon: SatisfactionIcon },
-    { value: "200+", label: "Cups of Coffee", icon: CoffeeIcon },
-    { value: "24/7", label: "Learning Mode", icon: LearningIcon },
+    { value: "8+", label: "Years of Experience" },
+    { value: "99%", label: "Client Satisfaction" },
+    { value: "200+", label: "Cups of Coffee" },
+    { value: "24/7", label: "Learning Mode" },
   ];
 
   return (
@@ -105,7 +89,7 @@ const About = () => {
             >
               <div className="flex items-center gap-4 mb-4">
                 <img
-                  src={ProfileImage}
+                  src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200"
                   alt={SITE_CONFIG.name}
                   className="w-16 h-16 rounded-full object-cover"
                 />
@@ -169,7 +153,7 @@ const About = () => {
               className="relative"
             >
               <img
-                src={CreativeImage}
+                src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Creative workspace"
                 className="w-full h-80 object-cover rounded-xl"
               />
@@ -201,7 +185,7 @@ const About = () => {
           className="flex gap-4 items-start"
         >
           <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
-            <img src={value.icon} alt={value.title} className="w-6 h-6" />
+            <div className="w-6 h-6 bg-accent rounded-full"></div>
           </div>
           <div>
             <h3 className="font-semibold mb-1">{value.title}</h3>
