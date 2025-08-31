@@ -4,22 +4,16 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Download } from "lucide-react";
 import { SITE_CONFIG } from '../utils/constants';
 
-// Import images
-import cube1 from "../images/cube1.png";
-import cube2 from "../images/cube2.png";
-import cube3 from "../images/cube3.png";
-import cube4 from "../images/cube4.png";
-
 const CrystalVision: React.FC = () => {
   const tabs = ["Logo Concepts", "Merch Designs", "Process"];
   const [activeTab, setActiveTab] = useState("Logo Concepts");
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
   const logoImages = [
-    { src: cube1, title: "Primary Concept", desc: "Main crystalline direction with light refraction exploring depth and luminosity" },
-    { src: cube2, title: "Concept A", desc: "Crystalline transparency with geometric precision" },
-    { src: cube3, title: "Sphere Concept", desc: "Reflective surface exploration" },
-    { src: cube4, title: "Minimal Line Concept", desc: "Simplistic and clean geometric design" },
+    { src: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Primary Concept", desc: "Main crystalline direction with light refraction exploring depth and luminosity" },
+    { src: "https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Concept A", desc: "Crystalline transparency with geometric precision" },
+    { src: "https://images.pexels.com/photos/2034892/pexels-photo-2034892.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Sphere Concept", desc: "Reflective surface exploration" },
+    { src: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800", title: "Minimal Line Concept", desc: "Simplistic and clean geometric design" },
   ];
 
   return (

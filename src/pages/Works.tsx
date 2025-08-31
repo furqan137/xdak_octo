@@ -4,22 +4,15 @@ import { Link } from 'react-router-dom';
 import { worksProjects } from '../data/projects';
 import { PROJECT_CATEGORIES, SITE_CONFIG } from '../utils/constants';
 
-// === Icons ===
-import AllIcon from '../icons/svg/all.png';
-import DigitalArtIcon from '../icons/svg/art.png';
-import BrandingIcon from '../icons/svg/brand.png';
-import UiUxIcon from '../icons/svg/ui.png';
-import AbstractIcon from '../icons/svg/abstract.png';
-
 const Works = () => {
   const [activeFilter, setActiveFilter] = useState(PROJECT_CATEGORIES.ALL);
 
   const filters = [
-    { id: PROJECT_CATEGORIES.ALL, label: 'all', icon: AllIcon },
-    { id: PROJECT_CATEGORIES.DIGITAL_ART, label: 'digital_art', icon: DigitalArtIcon },
-    { id: PROJECT_CATEGORIES.BRANDING, label: 'branding', icon: BrandingIcon },
-    { id: PROJECT_CATEGORIES.UI_UX, label: 'ui/ux', icon: UiUxIcon },
-    { id: PROJECT_CATEGORIES.ABSTRACT, label: 'abstract', icon: AbstractIcon },
+    { id: PROJECT_CATEGORIES.ALL, label: 'all' },
+    { id: PROJECT_CATEGORIES.DIGITAL_ART, label: 'digital_art' },
+    { id: PROJECT_CATEGORIES.BRANDING, label: 'branding' },
+    { id: PROJECT_CATEGORIES.UI_UX, label: 'ui/ux' },
+    { id: PROJECT_CATEGORIES.ABSTRACT, label: 'abstract' },
   ];
 
   const filteredProjects =
@@ -70,7 +63,7 @@ const Works = () => {
                     : 'border-gray-600 text-text-secondary hover:border-accent hover:text-accent'
                 }`}
               >
-                <img src={filter.icon} alt={filter.label} className="w-4 h-4" />
+                <div className="w-4 h-4 bg-current rounded-full opacity-60"></div>
                 {filter.label}
               </button>
             ))}

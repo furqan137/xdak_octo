@@ -3,17 +3,6 @@ import { motion } from "framer-motion";
 import { SITE_CONFIG } from '../utils/constants';
 import SocialLinks from "../components/SocialLinks";
 
-// Custom Icons from icons/contact folder
-import Message from "../icons/contact/message.png";
-import SendIcon from "../icons/contact/send.png";
-import LocationIcon from "../icons/contact/location.png";
-import ClockIcon from "../icons/contact/time.png";
-import ConnectIcon from "../icons/contact/connect.png";
-import ProcessIcon from "../icons/contact/process.png";
-import TimelineIcon from "../icons/contact/time.png";
-import RatesIcon from "../icons/contact/rate.png";
-import RevisionsIcon from "../icons/contact/changes.png";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,25 +25,21 @@ const Contact = () => {
       question: "What's your design process?",
       answer:
         "I start with understanding your vision, then move through research, sketching, digital creation, and refinement until we achieve the perfect result.",
-      icon: ProcessIcon,
     },
     {
       question: "How long does a project take?",
       answer:
         "Timeline varies by project complexity. Simple designs take 1-2 weeks, while comprehensive branding projects can take 4-6 weeks.",
-      icon: TimelineIcon,
     },
     {
       question: "What are your rates?",
       answer:
         "Rates depend on project scope and timeline. I offer both hourly and project-based pricing. Let's discuss your needs for a custom quote.",
-      icon: RatesIcon,
     },
     {
       question: "Do you offer revisions?",
       answer:
         "Yes! I include 3 rounds of revisions in all projects to ensure the final result exceeds your expectations.",
-      icon: RevisionsIcon,
     },
   ];
 
@@ -90,7 +75,7 @@ const Contact = () => {
             className="md:col-span-2 bg-secondary/30 p-8 rounded-2xl border border-gray-700/50"
           >
             <div className="flex items-center gap-3 mb-6">
-              <img src={Message} alt="Send Message" className="w-6 h-6" />
+              <div className="w-6 h-6 bg-accent rounded-lg"></div>
               <h2 className="text-2xl font-mono font-bold">Send Message</h2>
             </div>
 
@@ -157,7 +142,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-accent hover:bg-accent-light px-8 py-4 rounded-xl font-medium transition-colors flex items-center gap-2 text-white"
               >
-                <img src={SendIcon} alt="Send" className="w-5 h-5" />
+                <div className="w-5 h-5 bg-white rounded-full"></div>
                 Send Message
               </motion.button>
             </form>
@@ -173,7 +158,7 @@ const Contact = () => {
               className="bg-secondary/30 p-6 rounded-xl border border-gray-700/50"
             >
               <div className="flex items-center gap-3 mb-3">
-                <img src={LocationIcon} alt="Location" className="w-5 h-5" />
+                <div className="w-5 h-5 bg-accent rounded-full"></div>
                 <h3 className="font-semibold">Location</h3>
               </div>
               <p className="text-text-secondary">Paris, France</p>
@@ -190,7 +175,7 @@ const Contact = () => {
               className="bg-secondary/30 p-6 rounded-xl border border-gray-700/50"
             >
               <div className="flex items-center gap-3 mb-3">
-                <img src={ClockIcon} alt="Response Time" className="w-5 h-5" />
+                <div className="w-5 h-5 bg-accent-green rounded-full"></div>
                 <h3 className="font-semibold">Response Time</h3>
               </div>
               <p className="text-text-secondary">Usually within 24 hours</p>
@@ -207,7 +192,7 @@ const Contact = () => {
               className="bg-secondary/30 p-6 rounded-xl border border-gray-700/50"
             >
               <div className="flex items-center gap-3 mb-3">
-                <img src={ConnectIcon} alt="Connect" className="w-5 h-5" />
+                <div className="w-5 h-5 bg-accent-pink rounded-full"></div>
                 <h3 className="font-semibold">Let's Connect</h3>
               </div>
               <SocialLinks />
@@ -240,7 +225,7 @@ const Contact = () => {
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img src={faq.icon} alt={faq.question} className="w-5 h-5" />
+                    <div className="w-5 h-5 bg-accent rounded-full"></div>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-3">{faq.question}</h3>
