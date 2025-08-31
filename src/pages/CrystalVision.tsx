@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Download } from "lucide-react";
+import { SITE_CONFIG } from '../utils/constants';
 
 // Import images
 import cube1 from "../images/cube1.png";
@@ -199,7 +200,7 @@ const CrystalVision: React.FC = () => {
 
       {/* ---------- COPYRIGHT ---------- */}
       <div className="text-center text-xs text-gray-500 mt-12">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </div>
     </div>
   );

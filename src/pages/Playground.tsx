@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // 👈 Add this
+import { Link } from "react-router-dom";
+import { playgroundProjects } from '../data/projects';
+import { PLAYGROUND_CATEGORIES, SITE_CONFIG } from '../utils/constants';
 
 // === Icons ===
 import ExperimentalIcon from "../icons/playgrounds/experiment.png";
@@ -12,23 +14,13 @@ import Weird3DIcon from "../icons/playgrounds/3d.png";
 import TypeIcon from "../icons/playgrounds/type.png";
 import ChaosIcon from "../icons/playgrounds/chaos.png";
 
-// === Project Images ===
-import img1 from "../images/Playgrounds/Playground1.png";
-import img2 from "../images/Playgrounds/Playground2.png";
-import img3 from "../images/Playgrounds/Playground3.png";
-import img4 from "../images/Playgrounds/Playground4.png";
-import img5 from "../images/Playgrounds/Playground5.png";
-import img6 from "../images/Playgrounds/Playground6.png";
-import img7 from "../images/Playgrounds/Playground7.png";
-import img8 from "../images/Playgrounds/Playground9.png";
-
 const Playground = () => {
-  const [activeCategory, setActiveCategory] = useState("experimental");
+  const [activeFilter, setActiveFilter] = useState(PLAYGROUND_CATEGORIES.EXPERIMENTAL);
 
   const categories = [
-    { id: "experimental", label: "Experimental", icon: ExperimentalIcon, color: "bg-pink-600" },
-    { id: "unconventional", label: "Unconventional", icon: UnconventionalIcon, color: "bg-purple-600" },
-    { id: "weird", label: "Weird", icon: WeirdIcon, color: "bg-green-600" },
+    { id: PLAYGROUND_CATEGORIES.EXPERIMENTAL, label: "Experimental", icon: ExperimentalIcon, color: "bg-pink-600" },
+    { id: PLAYGROUND_CATEGORIES.UNCONVENTIONAL, label: "Unconventional", icon: UnconventionalIcon, color: "bg-purple-600" },
+    { id: PLAYGROUND_CATEGORIES.WEIRD, label: "Weird", icon: WeirdIcon, color: "bg-green-600" },
   ];
 
   const filters = [
@@ -39,16 +31,12 @@ const Playground = () => {
     { id: "chaos", label: "Abstract Chaos", icon: ChaosIcon },
   ];
 
-  const projects = [
-    { id: 1, title: "ERROR_404.exe", subtitle: "When reality.exe stops working", category: "experimental", image: img1 },
-    { id: 2, title: "NEON DREAMS", subtitle: "Typography Chaos", category: "unconventional", image: img2 },
-    { id: 3, title: "Impossible Geometries", subtitle: "Physics left the chat", category: "weird", image: img3 },
-    { id: 4, title: "Broken.Reality", subtitle: "System.malfunction.beautiful", category: "experimental", image: img4 },
-    { id: 5, title: "Data Dreams", subtitle: "What AI sees when it sleeps", category: "unconventional", image: img5 },
-    { id: 6, title: "WILD & FREE", subtitle: "Rebellious Letters", category: "weird", image: img6 },
-    { id: 7, title: "Dreamscape Architecture", subtitle: "Building in the impossible", category: "experimental", image: img7 },
-    { id: 8, title: "Liquid Thoughts", subtitle: "Consciousness in motion", category: "unconventional", image: img8 },
-  ];
+  const filteredProjects = playgroundProjects.filter(project => 
+    activeFilter === PLAYGROUND_CATEGORIES.EXPERIMENTAL ? project.category === activeFilter : 
+    activeFilter === PLAYGROUND_CATEGORIES.UNCONVENTIONAL ? project.category === activeFilter :
+    activeFilter === PLAYGROUND_CATEGORIES.WEIRD ? project.category === activeFilter :
+    true
+  );
 
   return (
     <div className="min-h-screen py-16 px-8">
@@ -96,17 +84,18 @@ const Playground = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <motion.div layout className="grid md:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
+              layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -6 }}
               className="rounded-2xl overflow-hidden bg-secondary/40 border border-gray-700/50"
             >
-              {/* 👇 Wrap each project in a Link */}
               <Link to="/crystalvision">
                 {/* Fixed Aspect Ratio for Uniform Cards */}
                 <div className="aspect-[4/3] w-full overflow-hidden">
@@ -116,17 +105,17 @@ const Playground = () => {
                 {/* Text Content */}
                 <div className="p-5">
                   <h3 className="font-mono text-lg font-bold mb-2">{project.title}</h3>
-                  <p className="text-text-secondary text-sm">{project.subtitle}</p>
+                  <p className="text-text-secondary text-sm">{project.subtitle || 'View Project'}</p>
                 </div>
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Footer */}
       <footer className="text-center py-8 mt-16 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );

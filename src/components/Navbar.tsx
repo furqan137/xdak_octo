@@ -1,31 +1,22 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../images/logo.png'; // <-- Import the logo
+import { NAVIGATION_ITEMS } from '../utils/constants';
 
 const Navbar = () => {
   const location = useLocation();
-
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Works', path: '/works' },
-    { name: 'Playground', path: '/playground' },
-    { name: 'About', path: '/about' },
-  ];
 
   return (
     <nav className="flex justify-between items-center px-8 py-6 relative z-50 bg-background">
       {/* Logo */}
       <Link to="/" className="flex items-center space-x-2">
-        <img
-          src={logo} // <-- Use the imported logo
-          alt="Logo"
-          className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110"
-        />
+        <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-light rounded-lg flex items-center justify-center transition-transform duration-300 hover:scale-110">
+          <span className="text-white font-mono font-bold text-xl">EV</span>
+        </div>
       </Link>
 
       {/* Navigation Links */}
       <div className="flex space-x-8">
-        {navItems.map((item) => (
+        {NAVIGATION_ITEMS.map((item) => (
           <Link
             key={item.name}
             to={item.path}

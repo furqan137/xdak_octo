@@ -8,8 +8,9 @@ export default {
         'mono': ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        primary: '#1a1a2e',
-        secondary: '#16213e',
+        background: '#0b0c10',
+        primary: '#1f2937',
+        secondary: '#374151',
         accent: '#7c3aed',
         'accent-light': '#a855f7',
         'accent-green': '#10b981',

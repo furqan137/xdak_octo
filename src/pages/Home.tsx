@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SocialLinks from '../components/SocialLinks';
+import PortfolioGrid from '../components/PortfolioGrid';
+import { skills } from '../data/skills';
+import { SITE_CONFIG } from '../utils/constants';
 
 // Profile & Info Icons
 import profileImg from '../images/profile.png';
@@ -11,30 +14,7 @@ import graduateIcon from '../icons/graduate.png';
 import aboutIcon from '../icons/aboutme.png';
 import skillsIcon from '../icons/skills.png';
 
-// Skills Icons
-import figmaIcon from '../icons/figma.png';
-import illustratorIcon from '../icons/illustrator.png';
-import photoshopIcon from '../icons/photoshop.png';
-import afterEffectsIcon from '../icons/aftereffects.png';
-import blenderIcon from '../icons/blender.png';
-import htmlIcon from '../icons/html.png';
-import cssIcon from '../icons/css.png';
-import colorTheoryIcon from '../icons/color.png';
-
-import PortfolioGrid from '../components/PortfolioGrid';
-
 const Home = () => {
-  const skills = [
-    { name: 'Figma', icon: figmaIcon },
-    { name: 'Illustrator', icon: illustratorIcon },
-    { name: 'Photoshop', icon: photoshopIcon },
-    { name: 'After Effects', icon: afterEffectsIcon },
-    { name: 'Blender', icon: blenderIcon },
-    { name: 'HTML', icon: htmlIcon },
-    { name: 'CSS', icon: cssIcon },
-    { name: 'Color Theory', icon: colorTheoryIcon },
-  ];
-
   return (
     <div className="min-h-screen bg-background text-white">
       {/* ---------------- HERO SECTION ---------------- */}
@@ -61,13 +41,12 @@ const Home = () => {
       className="max-w-4xl mx-auto"
     >
   <h1 className="font-mono text-3xl md:text-5xl font-bold mb-4 leading-snug">
-    Hi, I'm Elara Vance.
+    Hi, I'm {SITE_CONFIG.name}.
     <br />
     Designer, Artist, Creator.
   </h1>
       <p className="text-text-secondary text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-        Welcome to my digital canvas! I’m a designer who blends creativity, technology, 
-        and emotion to craft impactful experiences and visuals.
+        {SITE_CONFIG.description}
       </p>
 
           {/* Location and Education */}
@@ -78,7 +57,7 @@ const Home = () => {
             </div>
             <div className="flex items-center gap-2">
               <img src={mapIcon} alt="Location" className="w-4 h-4" />
-              <span>Paris, France</span>
+              <span>{SITE_CONFIG.location}</span>
             </div>
           </div>
 
@@ -160,7 +139,7 @@ const Home = () => {
 
       {/* ---------------- FOOTER ---------------- */}
       <footer className="text-center py-6 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );

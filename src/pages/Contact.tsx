@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { SITE_CONFIG } from '../utils/constants';
+import SocialLinks from "../components/SocialLinks";
 
 // Custom Icons from icons/contact folder
 import Message from "../icons/contact/message.png";
@@ -11,8 +13,6 @@ import ProcessIcon from "../icons/contact/process.png";
 import TimelineIcon from "../icons/contact/time.png";
 import RatesIcon from "../icons/contact/rate.png";
 import RevisionsIcon from "../icons/contact/changes.png";
-
-import SocialLinks from "../components/SocialLinks";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -255,7 +255,7 @@ const Contact = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 mt-16 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );

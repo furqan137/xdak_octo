@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { worksProjects } from '../data/projects';
+import { PROJECT_CATEGORIES, SITE_CONFIG } from '../utils/constants';
 
 // === Icons ===
 import AllIcon from '../icons/svg/all.png';
@@ -9,44 +11,21 @@ import BrandingIcon from '../icons/svg/brand.png';
 import UiUxIcon from '../icons/svg/ui.png';
 import AbstractIcon from '../icons/svg/abstract.png';
 
-// === Project Images ===
-import work1 from '../images/works/Project1.png';
-import work2 from '../images/works/Project2.png';
-import work3 from '../images/works/Project3.png';
-import work4 from '../images/works/Project4.png';
-import work5 from '../images/works/Project5.png';
-import work6 from '../images/works/Project6.png';
-import work7 from '../images/works/Project7.png';
-import work8 from '../images/works/Project8.png';
-import work9 from '../images/works/Project9.png';
-
 const Works = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState(PROJECT_CATEGORIES.ALL);
 
   const filters = [
-    { id: 'all', label: 'all', icon: AllIcon },
-    { id: 'digital_art', label: 'digital_art', icon: DigitalArtIcon },
-    { id: 'branding', label: 'branding', icon: BrandingIcon },
-    { id: 'ui/ux', label: 'ui/ux', icon: UiUxIcon },
-    { id: 'abstract', label: 'abstract', icon: AbstractIcon },
-  ];
-
-  const projects = [
-    { id: 1, title: 'Whispering Woods', category: 'digital_art', image: work1 },
-    { id: 2, title: 'Aura Music App', category: 'ui/ux', image: work2 },
-    { id: 3, title: 'Neon Dystopia', category: 'digital_art', image: work3 },
-    { id: 4, title: 'Terra Coffee', category: 'branding', image: work4 },
-    { id: 5, title: 'Geometric Harmony', category: 'abstract', image: work5 },
-    { id: 6, title: 'Android Soul', category: 'digital_art', image: work6 },
-    { id: 7, title: 'Zen Garden', category: 'digital_art', image: work7 },
-    { id: 8, title: 'Pixel Perk Cafe', category: 'branding', image: work8 },
-    { id: 9, title: 'Etherea Skincare', category: 'branding', image: work9 },
+    { id: PROJECT_CATEGORIES.ALL, label: 'all', icon: AllIcon },
+    { id: PROJECT_CATEGORIES.DIGITAL_ART, label: 'digital_art', icon: DigitalArtIcon },
+    { id: PROJECT_CATEGORIES.BRANDING, label: 'branding', icon: BrandingIcon },
+    { id: PROJECT_CATEGORIES.UI_UX, label: 'ui/ux', icon: UiUxIcon },
+    { id: PROJECT_CATEGORIES.ABSTRACT, label: 'abstract', icon: AbstractIcon },
   ];
 
   const filteredProjects =
-    activeFilter === 'all'
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+    activeFilter === PROJECT_CATEGORIES.ALL
+      ? worksProjects
+      : worksProjects.filter((p) => p.category === activeFilter);
 
   return (
     <div className="min-h-screen py-16 px-8">
@@ -116,7 +95,7 @@ const Works = () => {
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="rounded-xl overflow-hidden bg-secondary border border-gray-700/50"
             >
-              <Link to="/crystalvision">
+              <Link to={project.link || '/crystalvision'}>
                 <img
                   src={project.image}
                   alt={project.title}
@@ -134,7 +113,7 @@ const Works = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 mt-16 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );

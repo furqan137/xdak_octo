@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { SITE_CONFIG } from '../utils/constants';
 
 // Local icons
 import InspirationIcon from "../icons/about//inspire.png";
@@ -105,11 +106,11 @@ const About = () => {
               <div className="flex items-center gap-4 mb-4">
                 <img
                   src={ProfileImage}
-                  alt="Aria Lane"
+                  alt={SITE_CONFIG.name}
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <h3 className="font-semibold">Aria Lane</h3>
+                  <h3 className="font-semibold">{SITE_CONFIG.name}</h3>
                   <p className="text-text-muted text-sm">
                     Visual Artist & Designer
                   </p>
@@ -254,7 +255,7 @@ const About = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 mt-16 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );

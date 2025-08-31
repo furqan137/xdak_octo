@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SITE_CONFIG } from '../utils/constants';
 
 const ProjectDetail = () => {
   const [activeTab, setActiveTab] = useState('Logo Concepts');
@@ -305,7 +306,7 @@ const ProjectDetail = () => {
 
       {/* Footer */}
       <footer className="text-center py-8 mt-16 text-text-muted text-sm border-t border-gray-800">
-        © Elara Vance 2025. All rights reserved.
+        © {SITE_CONFIG.name} 2025. All rights reserved.
       </footer>
     </div>
   );
