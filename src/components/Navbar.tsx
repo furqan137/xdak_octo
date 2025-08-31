@@ -9,9 +9,11 @@ const Navbar = () => {
     <nav className="flex justify-between items-center px-8 py-6 relative z-50 bg-background">
       {/* Logo */}
       <Link to="/" className="flex items-center space-x-2">
-        <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-light rounded-lg flex items-center justify-center transition-transform duration-300 hover:scale-110">
-          <span className="text-white font-mono font-bold text-xl">EV</span>
-        </div>
+        <img 
+          src="/logo.png" 
+          alt="Elara Vance Logo" 
+          className="w-12 h-12 transition-transform duration-300 hover:scale-110"
+        />
       </Link>
 
       {/* Navigation Links */}
